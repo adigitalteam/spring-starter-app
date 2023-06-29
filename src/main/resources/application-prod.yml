@@ -1,0 +1,54 @@
+server:
+  port: 9877
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        enable_lazy_load_no_trans: true
+    initialization-mode: never
+  coredb:
+    url: jdbc:postgresql://localhost:5231/postgres
+    jdbc-url: jdbc:postgresql://localhost:5231/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    configuration:
+      jdbc-url: jdbc:postgresql://localhost:5231/postgres
+      username: postgres
+      password: postgres
+  liquibase:
+    url: jdbc:postgresql://localhost:5231/postgres
+    user: postgres
+    password: postgres
+    change-log: classpath:db/migration/changeLog.xml
+    enabled: true
+security:
+  oauth2:
+    resource:
+      filter-order: 3
+  auth-server-url: http://172.28.7.120:8080/oauth/check_token
+  auth-server-url-me: http://172.28.7.120:8080/oauth/users/me
+  auth-server: http://172.28.7.120:8080
+  auth-server-client-id: hr
+  auth-server-client-secret: pageup16
+  auth-server-login: hrms
+  auth-server-password: pageup16
+  aes-key: 4A404E635266556A
+cdn:
+  servers:
+    3:
+      host: 172.28.7.112
+      username: root
+      port: 22
+      password: D3v@2021
+      uploadPath: /static
+      publicFilePath: http://signature.xb.uz:32
+      publicPath: http://172.28.7.100:11280
+      httpHost: http://172.28.7.100:11280
+      publicGlobalPath: http://172.28.7.100:11280
+      alias: 3
+  inRotation: [ 3 ]

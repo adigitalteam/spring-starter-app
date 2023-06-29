@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="1-users" author="javharbek">
+        <createTable tableName="users">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_users_id"/>
+            </column>
+            <column name="user_name" type="varchar(255)"></column>
+            <column name="name" type="varchar(255)"></column>
+            <column name="email" type="varchar(255)"></column>
+            <column name="phone" type="varchar(255)"></column>
+            <column name="status" type="varchar(255)"></column>
+            <column name="authorities" type="jsonb"></column>
+            <column name="passport" type="varchar(255)"></column>
+            <column name="personal_identification_number" type="varchar(255)"></column>
+            <column name="sso_id" type="varchar(256)"></column>
+            <column name="sso_type" type="varchar(256)"></column>
+            <column name="created_datetime" type="DATETIME"></column>
+            <column name="created_by" type="VARCHAR(255)"></column>
+            <column name="updated_datetime" type="DATETIME"></column>
+            <column name="updated_by" type="VARCHAR(255)"></column>
+            <column name="deleted_datetime" type="DATETIME"></column>
+            <column name="deleted_by" type="VARCHAR(255)"></column>
+            <column name="is_deleted" type="boolean" defaultValueBoolean="false"></column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

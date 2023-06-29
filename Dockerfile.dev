@@ -1,0 +1,17 @@
+ARG HTTP_PROXY
+
+FROM xtremes/springbootbase as builder
+ENV http_proxy http://172.28.5.171:8080
+ENV https_proxy http://172.28.5.171:8080
+RUN mkdir /edoc_sign
+WORKDIR /auth
+COPY src src
+COPY pom.xml pom.xml
+RUN mvn package -DproxySet=true -DproxyHost=172.28.5.171 -DproxyPort=8080
+
+FROM openjdk:11.0.7-jre
+ENV http_proxy ${HTTP_PROXY}
+ENV https_proxy ${HTTP_PROXY}
+COPY --from=builder /auth/target/*.jar /app/lib/application.jar
+WORKDIR /app/lib
+ENTRYPOINT ["java", "-jar","-Dspring.profiles.active=dev", "application.jar"]

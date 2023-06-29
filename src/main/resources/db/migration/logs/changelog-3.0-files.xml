@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="changelog-3.0-files" author="javharbek">
+        <createTable tableName="files">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_files_id"/>
+            </column>
+            <column name="title" type="VARCHAR(4096)"></column>
+            <column name="description" type="VARCHAR(4096)"></column>
+            <column name="size" type="BIGINT"></column>
+            <column name="file" type="VARCHAR(4096)"></column>
+            <column name="type" type="varchar(255)"/>
+            <column name="type_id" type="varchar(255)"/>
+            <column name="extension" type="varchar(24)"></column>
+            <column name="status" type="INTEGER"></column>
+            <column name="host" type="VARCHAR(4096)"></column>
+            <column name="typeFor" type="varchar(255)"/>
+            <column name="created_datetime" type="DATETIME"></column>
+            <column name="created_by" type="VARCHAR(255)"></column>
+            <column name="updated_datetime" type="DATETIME"></column>
+            <column name="updated_by" type="VARCHAR(255)"></column>
+            <column name="deleted_datetime" type="DATETIME"></column>
+            <column name="deleted_by" type="VARCHAR(255)"></column>
+            <column name="is_deleted" type="boolean" defaultValueBoolean="false"></column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

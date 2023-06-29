@@ -1,0 +1,18 @@
+version: "3.2"
+
+services:
+  db:
+    image: postgres:14
+    volumes:
+      - './development/server/postgres/data:/var/lib/postgresql/data'
+      - './development/server/postgres:/var/lib/postgresql'
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    restart: always
+    ports:
+      - target: 5432
+        published: 5236
+        protocol: tcp
+        mode: host
